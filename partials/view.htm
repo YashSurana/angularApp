@@ -1,0 +1,9 @@
+<fieldset ng-repeat="person in persons track by $index">
+	<legend>Saved Info</legend>
+		Name:{{person.name}}<br/>
+		Place of Birth:{{person.pob}}<br/>
+		Eductaion:{{person.edu}}<br/>
+		<a href="javascript:void(0);" ng-click="track($index);">Update</a>
+		<a href="javascript:void(0);" ng-click="delete($index);">Delete</a>
+	
+</fieldset>

@@ -1,0 +1,49 @@
+var ctrl=angular.module("appctrl",[]);
+ctrl.service('data',function(){
+	this.name=[];
+	this.pob=[];
+	this.edu=[];
+	this.capture=function(arr){
+		this.name[0]=arr[0];
+		this.pob[0]=arr[1];
+		this.edu[0]=arr[2];
+	}
+});
+ctrl.controller('submitCtrl',function(data,$scope){
+	var arr=[];
+	$scope.save=function(){
+		arr.push(angular.element(document.getElementById("name")).val());
+		arr.push(angular.element(document.getElementById("pob")).val());
+		arr.push(angular.element(document.getElementById("education")).val());
+		data.capture(arr);
+	}
+});
+ctrl.controller('viewCtrl',function(data,$scope){
+	$scope.name=data.name[0];
+	$scope.pob=data.pob[0];
+	$scope.education=data.edu[0];
+});
+ctrl.controller('deleteCtrl',function(data,$scope){
+		$scope.name=data.name[0];
+		$scope.pob=data.pob[0];
+		$scope.education=data.edu[0];
+		$scope.remove=function(){
+			data.name[0]="";
+			$scope.name=data.name[0];
+			data.pob[0]="";
+			$scope.pob=data.pob[0];
+			data.edu[0]="";
+			$scope.education=data.edu[0];
+		}
+});
+ctrl.controller('updateCtrl',function(data,$scope){
+	$scope.name=data.name[0];
+	var arr=[];
+	
+	$scope.update=function(){
+		arr.push(angular.element(document.getElementById("name")).val());
+		arr.push(angular.element(document.getElementById("pob")).val());
+		arr.push(angular.element(document.getElementById("education")).val());
+		data.capture(arr);
+	}
+});

@@ -1,0 +1,9 @@
+<fieldset>
+	<legend>Form</legend>
+	<form ng-controller="updateCtrl">
+		Name:<input type="text" id="name" value="{{name}}" /><br/>
+		Place of Birth:<input type="text" value="{{pob}}" id="pob"/><br/>
+		Education:<input type="text" value="{{edu}}" id="education" /><br/>
+		<input type="submit" value="Submit" ng-click="update();" />
+	</form>
+</fieldset>
